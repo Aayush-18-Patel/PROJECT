@@ -1,0 +1,156 @@
+<nav>
+  <ul>
+    <li><a href="#">Dashboard</a>
+      <ul>
+        <!-- Admin Section -->
+        <li><strong>Admin</strong>
+          <ul>
+            <li><a href="#">User Registration & Profile Management</a></li>
+            <li><a href="#">Job Listings & Search Functionality</a></li>
+            <li><a href="#">Candidate Profiles & Search</a></li>
+            <li><a href="#">Application & Hiring Process</a></li>
+            <li><a href="#">Contract Management</a></li>
+            <li><a href="#">Secure Payment Processing</a></li>
+            <li><a href="#">Communication & Messaging</a></li>
+            <li><a href="#">Feedback & Reviews</a></li>
+            <li><a href="#">Analytics & Reporting</a></li>
+            <li><a href="#">Support & Help Desk</a></li>
+          </ul>
+        </li>
+        
+        <!-- Labour (Job Seeker) Section -->
+        <li><strong>Labour (Job Seeker)</strong>
+          <ul>
+            <li><a href="#">User Registration & Profile Management</a></li>
+            <li><a href="#">Job Search & Application</a></li>
+            <li><a href="#">Communication with Companies</a></li>
+            <li><a href="#">Feedback & Reviews</a></li>
+          </ul>
+        </li>
+
+        <!-- Customer (Company) Section -->
+        <li><strong>Customer (Company)</strong>
+          <ul>
+            <li><a href="#">User Registration & Profile Management</a></li>
+            <li><a href="#">Job Posting & Management</a></li>
+            <li><a href="#">Candidate Search & Hiring Process</a></li>
+            <li><a href="#">Contract Management</a></li>
+            <li><a href="#">Secure Payment Processing</a></li>
+            <li><a href="#">Communication with Job Seekers</a></li>
+            <li><a href="#">Feedback & Reviews</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+nav {
+  background-color: #333;
+  font-family: 'Montserrat', sans-serif;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  position: relative;
+  display: inline-block;
+  margin-right: 15px;
+}
+
+nav ul li a {
+  display: inline-block;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  background-color: #333;
+}
+
+nav ul li ul {
+  display: none;
+  position: absolute;
+  background-color: #444;
+  top: 100%;
+}
+
+nav ul li:hover ul {
+  display: block;
+}
+
+nav ul li ul li {
+  display: block;
+}
+
+nav ul li ul li a {
+  padding: 10px;
+  color: white;
+}
+
+nav ul li a:hover,
+nav ul li ul li a:hover {
+  background-color: #555;
+}
+
+nav ul li ul li strong {
+  color: #fff;
+  padding: 10px;
+  display: block;
+  font-weight: bold;
+  background-color: #222;
+}
