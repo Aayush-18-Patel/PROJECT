@@ -260,8 +260,8 @@ h1, h2, h3 {
 
 /*Animation*/
 .animate__animated.animate__fadeInUp{
-      --animate-duration: 5s;
-  --animate-delay: 0.9s;
+      --animate-duration: 1s;
+  
 }
 
 
@@ -468,11 +468,15 @@ h1, h2, h3 {
     padding: 80px 0;
 }
 
-.container h1 {
+.container h2 {
     text-align: center;
     color: var(--navy-blue);
     font-size: 50px;
     margin-bottom: 30px;
+
+}
+.info-content h2{
+    font-size: 15px;
 }
 
 .info-content {
@@ -504,26 +508,22 @@ h1, h2, h3 {
     top: 0;
 }
 
-.info-img {
-    flex: 1;
-    max-width: 400px;
-    height: auto;
-    border-radius: 10px;
-}
-.info-img1 {
-    width: 10vw;
-    height: 10vh;
-    object-fit: cover; /* Ensures the image maintains aspect ratio without distortion */
-    border-radius: 10px; /* Optional, for rounded corners */
-}
-
-
-
 .company-info p {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     text-align: left;
 }
+
+
+
+
+
+
+
+
+
+
+
 
 /* Footer */
 .footer {
