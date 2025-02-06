@@ -259,15 +259,41 @@ h1, h2, h3 {
 
 
 /*Animation*/
-.animate__animated.animate__fadeInUp{
+/*.animate__animated.animate__fadeInUp{
       --animate-duration: 1s;
   
+}*/
+
+
+
+
+
+
+.get-started-btn {
+    margin: 5px 0;
+    width: 200px;
+    background-color: var(--navy-blue);
+    color: white;
+    border: 1px solid var(--navy-blue);
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    display: block; /* Makes button a block element */
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    border: none;
 }
 
-
-
-
-
+.get-started-btn:hover {
+    background-color: var(--lime-green);
+    color: var(--navy-blue);
+}
 
 
 
