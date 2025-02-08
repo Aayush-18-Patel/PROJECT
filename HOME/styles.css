@@ -79,12 +79,15 @@
         display: flex;
         justify-content: space-between;
         align-items: right;
+        height: 2vh;
     }
 
     .logo {
+        display: flex;
         font-size: 30px;
         color: var(--white);
         font-weight: bold;
+        align-items: center;
     }
 
     .nav-links {
@@ -456,6 +459,7 @@
         flex: 1;
         max-width: 500px;
         margin-right: 30px;
+        margin-left: 150px;
     }
 
     #contact-form input,
@@ -473,7 +477,9 @@
 
     .contact-info {
         flex: 1;
-        max-width: 400px;
+        max-width: 500px;
+        margin-right: 150px;
+        font-size: 20px;
     }
 
     .contact-info h3 {
