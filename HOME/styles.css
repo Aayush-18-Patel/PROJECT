@@ -1,11 +1,12 @@
     /* General styling */
     :root {
-        --navy-blue: #000080;
-        --lime-green: #32CD32;
-        --white: #ffffff;
-        --light-gray: #f4f4f4;
+        --navy-blue: #004D40;
+        --lime-green: #C0C0C0;
+        --white: #F8F4E3;
+        --light-gray: #E5E4E2;
         --dark-gray: #333333;
     }
+    
 
     * {
         margin: 0;
@@ -79,7 +80,7 @@
         display: flex;
         justify-content: space-between;
         align-items: right;
-        height: 2vh;
+        height: 4vh;
     }
 
     .logo {
@@ -263,10 +264,10 @@
 
 
     /*Animation*/
-    /*.animate__animated.animate__fadeInUp{
+.animate__animated.animate__fadeInUp{
           --animate-duration: 1s;
       
-    }*/
+    }
 
 
 
