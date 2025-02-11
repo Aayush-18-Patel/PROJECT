@@ -210,7 +210,7 @@ input {
 }
 
 .overlay {
-	background: #3cb371;
+	background: #004D40;
 	background: linear-gradient(to right, #3cb371, #3cb371);
 	background-repeat: no-repeat;
 	background-size: cover;
