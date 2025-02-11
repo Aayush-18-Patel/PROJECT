@@ -1,12 +1,11 @@
     /* General styling */
     :root {
-        --navy-blue: #004D40;
-        --lime-green: #C0C0C0;
-        --white: #F8F4E3;
-        --light-gray: #E5E4E2;
+        --navy-blue: #000080;
+        --lime-green: #32CD32;
+        --white: #ffffff;
+        --light-gray: #f4f4f4;
         --dark-gray: #333333;
     }
-    
 
     * {
         margin: 0;
