@@ -1,4 +1,7 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 session_start();
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
@@ -50,6 +53,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit;
         }
     }
+
+
+    $query = "SELECT * FROM adminn WHERE email = ?";
+    $stmt = $con->prepare($query);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($row = $result->fetch_assoc()) {
+        if (password_verify($password, $row['password'])) {
+            $_SESSION['user'] = $row['email'];
+            $_SESSION['user_type'] = "admin"; // Store user type
+            echo "<script>alert('✅ Admin Login Successful!'); window.location.href = '../ADMIN/index.html';</script>";
+            exit;
+        } else {
+            echo "<script>alert('❌ Incorrect Password!'); window.location.href = 'index.html';</script>";
+            exit;
+        }
+    }
+
+
+
+
 
     // If no match in both tables
     echo "<script>alert('❌ User not found!'); window.location.href = 'index.html';</script>";

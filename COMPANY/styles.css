@@ -1,11 +1,11 @@
     /* General styling */
     :root {
-        --navy-blue: #004D40;
-        --lime-green: #C0C0C0;
-        --white: #F8F4E3;
-        --light-gray: #E5E4E2;
-        --dark-gray: #333333;
-    }
+        --deep-teal: #004D40;
+        --silver: #C0C0C0;
+        --champagne: #F8F4E3;
+        --platinum: #E5E4E2;
+        --charcoal: #333333;
+    }   
 
     * {
         margin: 0;
@@ -16,7 +16,7 @@
     body {
         font-family: 'Roboto', Arial, sans-serif;
         line-height: 1.6;
-        color: var(--dark-gray);
+        color: var(--charcoal);
         
     }
 
@@ -47,28 +47,29 @@
     }
 
     .btn-primary {
-        background-color: var(--lime-green);
-        color: var(--white);
+        background-color: limegreen;
+        color: var(--champagne);
     }
 
     .btn-primary:hover {
-        background-color: #28a745;
+        background-color: var(--champagne);
+        color: limegreen;
     }
 
     .btn-secondary {
-        background-color: var(--lime-green);
-        color: var(--navy-blue);
-        border: 2px solid var(--navy-blue);
+        background-color: var(--silver);
+        color: var(--deep-teal);
+        border: 2px solid var(--deep-teal);
     }
 
     .btn-secondary:hover {
-        background-color: var(--navy-blue);
-        color: var(--white);
+        background-color: var(--deep-teal);
+        color: var(--champagne);
     }
 
     /* Header and Navigation */
     .header {
-        background-color: var(--navy-blue);
+        background-color: var(--deep-teal);
         padding: 24px;
         position: fixed;
         width: 100%;
@@ -79,13 +80,13 @@
         display: flex;
         justify-content: space-between;
         align-items: right;
-        height: 2vh;
+        height: 4vh;
     }
 
     .logo {
         display: flex;
         font-size: 30px;
-        color: var(--white);
+        color: var(--champagne);
         font-weight: bold;
         align-items: center;
     }
@@ -102,7 +103,7 @@
     }
 
     .nav-links a {
-        color: var(--white);
+        color: var(--champagne);
         text-decoration: none;
         font-weight: bold;
         font-size: 20px;
@@ -110,7 +111,7 @@
     }
 
     .nav-links a:hover {
-        color: var(--lime-green);
+        color: var(--silver);
     }
 
     .burger {
@@ -121,15 +122,15 @@
     .burger div {
         width: 25px;
         height: 3px;
-        background-color: var(--white);
+        background-color: var(--champagne);
         margin: 5px;
         transition: all 0.3s ease;
     }
 
     /* Hero Section */
     .hero-section {
-        background-color: var(--white);
-        color: var(--dark-gray);
+        background-color: var(--champagne);
+        color: var(--charcoal);
         padding: 220px 0 150px;
     }
 
@@ -176,8 +177,8 @@
 
     /* General Styling for Split Screen */
     .split-screen {
-        background-color: var(--white);
-        color: var(--dark-gray);
+        background-color: var(--champagne);
+        color: var(--charcoal);
         display: flex;
         height: 100vh;
         align-items: center;
@@ -195,8 +196,8 @@
     }
 
     #section1 .right {
-        background-color: var(--white);
-        color: var(--dark-gray);
+        background-color: var(--champagne);
+        color: var(--charcoal);
         text-align: left;
         padding: 20px;
     }
@@ -212,8 +213,8 @@
         flex-direction: row; /* Image on the left and text on the right */
     }
     #section2 .left {
-        background-color: var(--white);
-        color: var(--dark-gray);
+        background-color: var(--champagne);
+        color: var(--charcoal);
         text-align: left;
         padding: 20px;
     }
@@ -276,9 +277,9 @@
     .get-started-btn {
         margin: 5px 0;
         width: 200px;
-        background-color: var(--navy-blue);
+        background-color: var(--deep-teal);
         color: white;
-        border: 1px solid var(--navy-blue);
+        border: 1px solid var(--deep-teal);
         font-size: 12px;
         font-weight: bold;
         padding: 12px 20px;
@@ -295,8 +296,8 @@
     }
 
     .get-started-btn:hover {
-        background-color: var(--lime-green);
-        color: var(--navy-blue);
+        background-color: var(--silver);
+        color: var(--deep-teal);
     }
 
 
@@ -321,12 +322,12 @@
     /* About Section */
     .about-section {
         padding: 80px 0;
-        background-color: var(--white);
+        background-color: var(--champagne);
     }
 
     .about-section h2 {
         text-align: center;
-        color: var(--navy-blue);
+        color: var(--deep-teal);
     }
 
     .about-content {
@@ -356,13 +357,13 @@
 
     /* Services Section */
     .services-section {
-        background-color: var(--light-gray);
+        background-color: var(--platinum);
         padding: 80px 0;
     }
 
     .services-section h2 {
         text-align: center;
-        color: var(--navy-blue);
+        color: var(--deep-teal);
         margin-bottom: 50px;
     }
 
@@ -372,7 +373,7 @@
         gap: 30px;
     }
     .service {
-        background-color: var(--white);
+        background-color: var(--champagne);
         padding: 30px;
         border-radius: 5px;
         box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
@@ -388,23 +389,23 @@
     .service .icon {
         font-size: 3rem;
         margin-bottom: 20px;
-        color: var(--lime-green);
+        color: var(--silver);
         align-items: center;
     }
 
     .service h1 {
-        color: var(--navy-blue);
+        color: var(--deep-teal);
     }
 
     /* Testimonials Section */
     .testimonials-section {
         padding: 80px 0;
-        background-color: var(--white);
+        background-color: var(--champagne);
     }
 
     .testimonials-section h2 {
         text-align: center;
-        color: var(--navy-blue);
+        color: var(--deep-teal);
         margin-bottom: 50px;
     }
 
@@ -415,7 +416,7 @@
     }
 
     .testimonial {
-        background-color: var(--light-gray);
+        background-color: var(--platinum);
         padding: 30px;
         border-radius: 5px;
         text-align: center;
@@ -434,18 +435,18 @@
     }
 
     .testimonial h4 {
-        color: var(--navy-blue);
+        color: var(--deep-teal);
     }
 
     /* Contact Section */
     .contact-section {
         padding: 80px 0;
-        background-color: var(--light-gray);
+        background-color: var(--platinum);
     }
 
     .contact-section h2 {
         text-align: center;
-        color: var(--navy-blue);
+        color: var(--deep-teal);
         margin-bottom: 30px;
     }
 
@@ -483,7 +484,7 @@
     }
 
     .contact-info h3 {
-        color: var(--navy-blue);
+        color: var(--deep-teal);
         margin-bottom: 20px;
     }
 
@@ -497,13 +498,13 @@
 
     /* Company Info Section */
     .company-info {
-        background-color: var(--white);
+        background-color: var(--champagne);
         padding: 80px 0;
     }
 
     .container h2 {
         text-align: center;
-        color: var(--navy-blue);
+        color: var(--deep-teal);
         font-size: 50px;
         margin-bottom: 30px;
 
@@ -534,7 +535,7 @@
 
     .info-content li::before {
         content: "✓";
-        color: var(--lime-green);
+        color: var(--silver);
         font-size: 1.5em;
         position: absolute;
         left: 0;
@@ -561,8 +562,8 @@
 
     /* Footer */
     .footer {
-        background-color: var(--navy-blue);
-        color: var(--white);
+        background-color: var(--deep-teal);
+        color: var(--champagne);
         padding: 50px 0 20px;
     }
 
@@ -580,7 +581,7 @@
     }
 
     .footer-section h3 {
-        color: var(--lime-green);
+        color: var(--silver);
         margin-bottom: 15px;
     }
 
@@ -593,13 +594,13 @@
     }
 
     .footer-section a {
-        color: var(--white);
+        color: var(--champagne);
         text-decoration: none;
         transition: color 0.3s ease;
     }
 
     .footer-section a:hover {
-        color: var(--lime-green);
+        color: var(--silver);
     }
 
     .footer-bottom {
@@ -615,7 +616,7 @@
             right: 0px;
             height: 92vh;
             top: 8vh;
-            background-color: var(--navy-blue);
+            background-color: var(--deep-teal);
             display: flex;
             flex-direction: column;
             align-items: center;
