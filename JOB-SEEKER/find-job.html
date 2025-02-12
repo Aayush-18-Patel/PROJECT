@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find a Job - SHREEJI ENTERPRISE</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav container">
+            <div class="logo">SHREEJI ENTERPRISE</div>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About-Us</a></li>
+                <li><a href="index.html#contact">Contact-Us</a></li>
+                <li><a href="find-job.html" class="find-job-btn">Find a Job</a></li> <!-- Updated link -->
+            </ul>  
+        </nav>
+    </header>
+
+    <main>
+        <!-- Find a Job Section -->
+        <section id="find-job" class="find-job-section">
+            <div class="container">
+                <br>
+                <h2>Find a Job</h2>
+                <div class="find-job-content">
+                    <form id="job-application-form" action="find_job_backend.php" method="POST"enctype="multipart/form-data">
+                        <input type="text" name="full-name" placeholder="Full Name" required>
+                        <input type="email" name="email" placeholder="Email Address" required>
+                        <input type="tel" name="phone" placeholder="Phone Number" required>
+                        <input type="text" name="location" placeholder="Location" required>
+                        <input type="text" name="job-title" placeholder="Desired Job Title" required>
+                        <textarea name="experience" placeholder="Work Experience" required></textarea>
+                        <textarea name="skills" placeholder="Skills" required></textarea>
+                        <input type="file" name="resume" accept=".pdf,.doc,.docx" required>
+                        <button type="submit" class="btn btn-primary">Apply Now</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>SHREEJI ENTERPRISE</h3>
+                    <p style="width: 20vw; font-size: 20px; word-wrap: break-word;text-align: justify;">Welcome to Shreeji Enterprise! where innovation and excellence come together. Our team is committed to providing top-notch solutions that meet your unique needs, helping you grow and succeed in a competitive world</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="index.html#about">About-Us</a></li>
+                        <li><a href="index.html#contact">Contact-Us</a></li>
+                        <li><a href="find-job.html">Find-job</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>Email: shreejienterprise2011@gmail.com</p>
+                    <p>Phone: 9374655199</p>
+                    <p>Address: 3nd Floor, Love Complex, Kankaria, Maninagar, Ahmedabad - 380008 (Opposite Apsara Cinema)</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <script>document.write( new Date().getFullYear() );</script>
+                    SHREEJI ENTERPRISE. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

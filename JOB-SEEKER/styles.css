@@ -1,11 +1,11 @@
     /* General styling */
     :root {
-        --deep-teal: #004D40;
-        --silver: #C0C0C0;
-        --champagne: #F8F4E3;
-        --platinum: #E5E4E2;
-        --charcoal: #333333;
-    }   
+        --navy-blue: #004D40;
+        --lime-green: #C0C0C0;
+        --white: #F8F4E3;
+        --light-gray: #E5E4E2;
+        --dark-gray: #333333;
+    }
 
     * {
         margin: 0;
@@ -16,7 +16,7 @@
     body {
         font-family: 'Roboto', Arial, sans-serif;
         line-height: 1.6;
-        color: var(--charcoal);
+        color: var(--dark-gray);
         
     }
 
@@ -47,29 +47,28 @@
     }
 
     .btn-primary {
-        background-color: limegreen;
-        color: var(--champagne);
+        background-color: var(--lime-green);
+        color: var(--white);
     }
 
     .btn-primary:hover {
-        background-color: var(--champagne);
-        color: limegreen;
+        background-color: #28a745;
     }
 
     .btn-secondary {
-        background-color: var(--silver);
-        color: var(--deep-teal);
-        border: 2px solid var(--deep-teal);
+        background-color: var(--lime-green);
+        color: var(--navy-blue);
+        border: 2px solid var(--navy-blue);
     }
 
     .btn-secondary:hover {
-        background-color: var(--deep-teal);
-        color: var(--champagne);
+        background-color: var(--navy-blue);
+        color: var(--white);
     }
 
     /* Header and Navigation */
     .header {
-        background-color: var(--deep-teal);
+        background-color: var(--navy-blue);
         padding: 24px;
         position: fixed;
         width: 100%;
@@ -80,13 +79,13 @@
         display: flex;
         justify-content: space-between;
         align-items: right;
-        height: 4vh;
+        height: 2vh;
     }
 
     .logo {
         display: flex;
         font-size: 30px;
-        color: var(--champagne);
+        color: var(--white);
         font-weight: bold;
         align-items: center;
     }
@@ -103,7 +102,7 @@
     }
 
     .nav-links a {
-        color: var(--champagne);
+        color: var(--white);
         text-decoration: none;
         font-weight: bold;
         font-size: 20px;
@@ -111,7 +110,7 @@
     }
 
     .nav-links a:hover {
-        color: var(--silver);
+        color: var(--lime-green);
     }
 
     .burger {
@@ -122,15 +121,15 @@
     .burger div {
         width: 25px;
         height: 3px;
-        background-color: var(--champagne);
+        background-color: var(--white);
         margin: 5px;
         transition: all 0.3s ease;
     }
 
     /* Hero Section */
     .hero-section {
-        background-color: var(--champagne);
-        color: var(--charcoal);
+        background-color: var(--white);
+        color: var(--dark-gray);
         padding: 220px 0 150px;
     }
 
@@ -177,8 +176,8 @@
 
     /* General Styling for Split Screen */
     .split-screen {
-        background-color: var(--champagne);
-        color: var(--charcoal);
+        background-color: var(--white);
+        color: var(--dark-gray);
         display: flex;
         height: 100vh;
         align-items: center;
@@ -196,8 +195,8 @@
     }
 
     #section1 .right {
-        background-color: var(--champagne);
-        color: var(--charcoal);
+        background-color: var(--white);
+        color: var(--dark-gray);
         text-align: left;
         padding: 20px;
     }
@@ -213,8 +212,8 @@
         flex-direction: row; /* Image on the left and text on the right */
     }
     #section2 .left {
-        background-color: var(--champagne);
-        color: var(--charcoal);
+        background-color: var(--white);
+        color: var(--dark-gray);
         text-align: left;
         padding: 20px;
     }
@@ -277,9 +276,9 @@
     .get-started-btn {
         margin: 5px 0;
         width: 200px;
-        background-color: var(--deep-teal);
+        background-color: var(--navy-blue);
         color: white;
-        border: 1px solid var(--deep-teal);
+        border: 1px solid var(--navy-blue);
         font-size: 12px;
         font-weight: bold;
         padding: 12px 20px;
@@ -296,8 +295,8 @@
     }
 
     .get-started-btn:hover {
-        background-color: var(--silver);
-        color: var(--deep-teal);
+        background-color: var(--lime-green);
+        color: var(--navy-blue);
     }
 
 
@@ -322,12 +321,12 @@
     /* About Section */
     .about-section {
         padding: 80px 0;
-        background-color: var(--champagne);
+        background-color: var(--white);
     }
 
     .about-section h2 {
         text-align: center;
-        color: var(--deep-teal);
+        color: var(--navy-blue);
     }
 
     .about-content {
@@ -357,13 +356,13 @@
 
     /* Services Section */
     .services-section {
-        background-color: var(--platinum);
+        background-color: var(--light-gray);
         padding: 80px 0;
     }
 
     .services-section h2 {
         text-align: center;
-        color: var(--deep-teal);
+        color: var(--navy-blue);
         margin-bottom: 50px;
     }
 
@@ -373,7 +372,7 @@
         gap: 30px;
     }
     .service {
-        background-color: var(--champagne);
+        background-color: var(--white);
         padding: 30px;
         border-radius: 5px;
         box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
@@ -389,23 +388,23 @@
     .service .icon {
         font-size: 3rem;
         margin-bottom: 20px;
-        color: var(--silver);
+        color: var(--lime-green);
         align-items: center;
     }
 
     .service h1 {
-        color: var(--deep-teal);
+        color: var(--navy-blue);
     }
 
     /* Testimonials Section */
     .testimonials-section {
         padding: 80px 0;
-        background-color: var(--champagne);
+        background-color: var(--white);
     }
 
     .testimonials-section h2 {
         text-align: center;
-        color: var(--deep-teal);
+        color: var(--navy-blue);
         margin-bottom: 50px;
     }
 
@@ -416,7 +415,7 @@
     }
 
     .testimonial {
-        background-color: var(--platinum);
+        background-color: var(--light-gray);
         padding: 30px;
         border-radius: 5px;
         text-align: center;
@@ -435,18 +434,18 @@
     }
 
     .testimonial h4 {
-        color: var(--deep-teal);
+        color: var(--navy-blue);
     }
 
     /* Contact Section */
     .contact-section {
         padding: 80px 0;
-        background-color: var(--platinum);
+        background-color: var(--light-gray);
     }
 
     .contact-section h2 {
         text-align: center;
-        color: var(--deep-teal);
+        color: var(--navy-blue);
         margin-bottom: 30px;
     }
 
@@ -484,7 +483,7 @@
     }
 
     .contact-info h3 {
-        color: var(--deep-teal);
+        color: var(--navy-blue);
         margin-bottom: 20px;
     }
 
@@ -498,13 +497,13 @@
 
     /* Company Info Section */
     .company-info {
-        background-color: var(--champagne);
+        background-color: var(--white);
         padding: 80px 0;
     }
 
     .container h2 {
         text-align: center;
-        color: var(--deep-teal);
+        color: var(--navy-blue);
         font-size: 50px;
         margin-bottom: 30px;
 
@@ -535,7 +534,7 @@
 
     .info-content li::before {
         content: "✓";
-        color: var(--silver);
+        color: var(--lime-green);
         font-size: 1.5em;
         position: absolute;
         left: 0;
@@ -562,8 +561,8 @@
 
     /* Footer */
     .footer {
-        background-color: var(--deep-teal);
-        color: var(--champagne);
+        background-color: var(--navy-blue);
+        color: var(--white);
         padding: 50px 0 20px;
     }
 
@@ -581,7 +580,7 @@
     }
 
     .footer-section h3 {
-        color: var(--silver);
+        color: var(--lime-green);
         margin-bottom: 15px;
     }
 
@@ -594,13 +593,13 @@
     }
 
     .footer-section a {
-        color: var(--champagne);
+        color: var(--white);
         text-decoration: none;
         transition: color 0.3s ease;
     }
 
     .footer-section a:hover {
-        color: var(--silver);
+        color: var(--lime-green);
     }
 
     .footer-bottom {
@@ -616,7 +615,7 @@
             right: 0px;
             height: 92vh;
             top: 8vh;
-            background-color: var(--deep-teal);
+            background-color: var(--navy-blue);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -785,3 +784,145 @@
 }
 
 */
+
+
+
+    /* Find a Job Section */
+.find-job-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f9f9f9, #e0e0e0);
+    text-align: center;
+}
+
+.find-job-section h2 {
+    font-size: 2.8rem;
+    color: #333;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    display: inline-block;
+}
+
+.find-job-section h2::after {
+    content: '';
+    position: absolute;
+    width: 60%;
+    height: 3px;
+    background: #4CAF50;
+    bottom: -10px;
+    left: 20%;
+    border-radius: 2px;
+}
+
+.find-job-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.find-job-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+#job-application-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#job-application-form input,
+#job-application-form textarea,
+#job-application-form button {
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#job-application-form input:focus,
+#job-application-form textarea:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+    outline: none;
+}
+
+#job-application-form textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+#job-application-form button {
+    background:#36454F;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+#job-application-form button:hover {
+    background: linear-gradient(135deg, #45a049, #4CAF50);
+    transform: translateY(-3px);
+}
+
+#job-application-form button:active {
+    transform: translateY(0);
+}
+
+/* File Input Styling */
+#job-application-form input[type="file"] {
+    padding: 10px;
+    background: #f9f9f9;
+    border: 2px dashed #ddd;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+#job-application-form input[type="file"]:hover {
+    border-color: #4CAF50;
+    background: #f0f0f0;
+}
+
+#job-application-form input[type="file"]::file-selector-button {
+    padding: 10px 20px;
+/*    background: #4CAF50;*/
+background:#36454F;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#job-application-form input[type="file"]::file-selector-button:hover {
+    background: #45a049;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .find-job-content {
+        padding: 20px;
+    }
+
+    .find-job-section h2 {
+        font-size: 2.2rem;
+    }
+
+    #job-application-form input,
+    #job-application-form textarea,
+    #job-application-form button {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+}
