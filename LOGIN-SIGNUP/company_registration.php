@@ -25,7 +25,6 @@ $table_query = "CREATE TABLE IF NOT EXISTS companies (
     company_name VARCHAR(255) NOT NULL,
     industry VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL UNIQUE,
-    name VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL
 )";
 $con->query($table_query);
@@ -44,12 +43,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->execute();
     $result = $stmt->get_result();
 
-    if ($result->num_rows > 0) {
+    $stmt1 = $con->prepare("SELECT * FROM jobseeker WHERE email = ?");
+    $stmt1->bind_param("s", $email);
+    $stmt1->execute();
+    $result1 = $stmt1->get_result();
+
+    if ($result->num_rows > 0) 
+    {
         echo "<script>alert('❌ Email already exists!'); window.history.back();</script>";
-    } else {
+    } 
+    else if($result1->num_rows > 0){
+        echo "<script>alert('❌ Email already exists!'); window.history.back();</script>";
+    }
+    else {
         // Insert Data
-        $stmt = $con->prepare("INSERT INTO companies (company_name, industry, email, name, password) VALUES (?, ?, ?, ?, ?)");
-        $stmt->bind_param("sssss", $company_name, $industry, $email, $name, $password);
+        $stmt = $con->prepare("INSERT INTO companies (company_name, industry, email, password) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("ssss", $company_name, $industry, $email, $password);
 
         if ($stmt->execute()) {
             echo "<script>alert('✅ Registration Successful! Redirecting to Login...'); window.location.href = 'index.html';</script>";

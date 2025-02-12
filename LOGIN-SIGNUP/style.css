@@ -46,7 +46,7 @@ a {
 button {
 	border-radius: 20px;
 	border: 1px solid #3cb371;
-	background-color: #3cb371;
+	background-color: #004D40;
 	color: #FFFFFF;
 	font-size: 12px;
 	font-weight: bold;
@@ -58,7 +58,8 @@ button {
 }
 
 button:hover {
-	background-color: #2e8b57;
+	background-color: #C0C0C0;
+	color: #004D40;
 }
 
 button:active {
@@ -71,7 +72,13 @@ button:focus {
 
 button.ghost {
 	background-color: transparent;
-	border-color: #FFFFFF;
+	border-color: #FFFFFF;	
+}
+button.ghost:hover {
+	background-color: #C0C0C0;
+	color: #004D40;
+	
+	
 }
 
 /* Forms */
@@ -116,21 +123,21 @@ input {
 }
 
 .signin-option-btn {
-	background-color: #4CAF50;
+	background-color: #004D40;
 	color: white;
 	border: none;
 	padding: 12px 20px;
 	margin: 10px;
 	cursor: pointer;
 	font-size: 16px;
-	border-radius: 5px;
+	border-radius: 10px;
 	transition: 0.3s;
-	margin-top: 20px;
+	margin-top: 30px;
 }
 
 .signin-option-btn:hover {
-	background-color: #45a049;
-	}
+	background-color: #C0C0C0;
+	color: #004D40;	}
 
 /* Form Containers */
 .form-container {
@@ -178,7 +185,7 @@ input {
 
 /* Back Button */
 .back-btn {
-	background-color: #ff5c5c;
+	background-color: #73e6cb;
 	color: white;
 	border: none;
 	padding: 10px 20px;
@@ -190,7 +197,8 @@ input {
 }
 
 .back-btn:hover {
-	background-color: #e04b4b;
+	background-color: #C0C0C0;
+	color: #004D40;
 }
 
 /* Overlay */
@@ -211,8 +219,7 @@ input {
 
 .overlay {
 	background: #004D40;
-	background: linear-gradient(to right, #3cb371, #3cb371);
-	background-repeat: no-repeat;
+		background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;
 	color: #fff;

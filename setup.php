@@ -22,9 +22,10 @@ try {
     )");
 
     // Create admin table
-    $pdo->exec("CREATE TABLE IF NOT EXISTS admin (
+    $pdo->exec("CREATE TABLE IF NOT EXISTS adminn (
         id INT AUTO_INCREMENT PRIMARY KEY,
-        username VARCHAR(255) NOT NULL UNIQUE,
+        name VARCHAR(255) NOT NULL,
+        email VARCHAR(255) NOT NULL UNIQUE,
         password VARCHAR(255) NOT NULL
     )");
 

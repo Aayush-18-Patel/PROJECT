@@ -40,6 +40,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("<script>alert('❌ Email already exists!'); window.history.back();</script>");
     }
 
+    $stmt1 = $con->prepare("SELECT * FROM companies WHERE email = ?");
+    $stmt1->bind_param("s", $email);
+    $stmt1->execute();
+    $result1 = $stmt1->get_result();
+
+    if ($result1->num_rows > 0) {
+        die("<script>alert('❌ Email already exists!'); window.history.back();</script>");
+    }
+
     // File Upload Handling
     if (isset($_FILES['resume']) && $_FILES['resume']['error'] === UPLOAD_ERR_OK) {
         $file_name = basename($_FILES['resume']['name']);
