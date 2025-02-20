@@ -20,70 +20,52 @@ $table_query = "CREATE TABLE IF NOT EXISTS jobseeker (
     name VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
-    file VARCHAR(255) NOT NULL
+    jobpreference VARCHAR(255) NOT NULL
+
 )";
 $con->query($table_query);
 
-// Handle Form Submission
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = trim($_POST['name']);
-    $email = trim($_POST['email']);
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+// Check if session variables are set
+if (!isset($_SESSION['js_email'], $_SESSION['js_password'], $_SESSION['js_name'],$_SESSION['js_preference'])) {
+    echo "<script>alert('❌ All fields are required!'); window.history.back();</script>";
+    exit;
+}
 
-    // Check if Email Exists
-    $stmt = $con->prepare("SELECT * FROM jobseeker WHERE email = ?");
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $result = $stmt->get_result();
+// Get session values
+$email = $_SESSION['js_email'];
+$password = password_hash($_SESSION['js_password'], PASSWORD_BCRYPT);
+$name = $_SESSION['js_name'];
+$preference = $_SESSION['js_preference'];
 
-    if ($result->num_rows > 0) {
-        die("<script>alert('❌ Email already exists!'); window.history.back();</script>");
-    }
+// Check if Email Exists in jobseeker
+$stmt = $con->prepare("SELECT * FROM jobseeker WHERE email = ?");
+$stmt->bind_param("s", $email);
+$stmt->execute();
+$result = $stmt->get_result();
+$num_rows_jobseeker = $result->num_rows;
+$stmt->close();
 
-    $stmt1 = $con->prepare("SELECT * FROM companies WHERE email = ?");
-    $stmt1->bind_param("s", $email);
-    $stmt1->execute();
-    $result1 = $stmt1->get_result();
+// Check if Email Exists in companies
+$stmt1 = $con->prepare("SELECT * FROM companies WHERE email = ?");
+$stmt1->bind_param("s", $email);
+$stmt1->execute();
+$result1 = $stmt1->get_result();
+$num_rows_companies = $result1->num_rows;
+$stmt1->close();
 
-    if ($result1->num_rows > 0) {
-        die("<script>alert('❌ Email already exists!'); window.history.back();</script>");
-    }
+if ($num_rows_companies > 0 || $num_rows_jobseeker > 0) {
+    echo "<script>alert('❌ Email already exists!'); window.location.href = 'index.html';</script>";
+    exit;
+}
 
-    // File Upload Handling
-    if (isset($_FILES['resume']) && $_FILES['resume']['error'] === UPLOAD_ERR_OK) {
-        $file_name = basename($_FILES['resume']['name']);
-        $file_tmp = $_FILES['resume']['tmp_name'];
+// ✅ Insert Data into Database
+$stmt = $con->prepare("INSERT INTO jobseeker (name, email, password, jobpreference) VALUES (?, ?, ?, ?)");
+$stmt->bind_param("ssss", $name, $email, $password, $preference);
 
-        // Upload Directory (relative path)
-        $upload_dir = "upload/";
-        $file_destination = $upload_dir . $file_name;
-
-        // Ensure upload directory exists
-        if (!is_dir($upload_dir)) {
-            mkdir($upload_dir, 0777, true);
-        }
-
-        // Move uploaded file
-        if (move_uploaded_file($file_tmp, $file_destination)) {
-            echo "<p style='color: green;'>✅ File uploaded successfully!</p>";
-        } else {
-            die("<p style='color: red;'>❌ Failed to upload file. Check folder permissions.</p>");
-        }
-    } else {
-        die("<p style='color: red;'>❌ No file uploaded or file error occurred.</p>");
-    }
-
-    // Insert Data into Database
-    $stmt = $con->prepare("INSERT INTO jobseeker (name, email, password, file) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("ssss", $name, $email, $password, $file_destination);
-
-    if ($stmt->execute()) {
-        echo "<script>alert('✅ Registration Successful! Redirecting to Login...'); window.location.href = 'index.html';</script>";
-        exit;
-    } else {
-        die("❌ Error: " . $con->error);
-    }
+if ($stmt->execute()) {
+    echo "<script>alert('✅ Registration Successful! Redirecting to Login...'); window.location.href = 'index.html';</script>";
+    exit;
+} else {
+    die("❌ Error: " . $con->error);
 }
 ?>
-
-

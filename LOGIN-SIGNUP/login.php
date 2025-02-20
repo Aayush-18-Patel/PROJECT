@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($password, $row['password'])) {
             $_SESSION['user'] = $row['email'];
             $_SESSION['user_type'] = "jobseeker"; // Store user type
-            echo "<script>alert('✅ Jobseeker Login Successful!'); window.location.href = '../JOB-SEEKER/index.html';</script>";
+            echo "<script>window.location.href = '../JOB-SEEKER/index.html';</script>";
             exit;
         } else {
             echo "<script>alert('❌ Incorrect Password!'); window.location.href = 'index.html';</script>";

@@ -8,8 +8,10 @@ require 'vendor/autoload.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include('config.php');
     $action = $_POST['action'];
-    $email = $_POST['email'];
-
+    $email = $_POST['js_email'] ?? '';  // Fix: Use null-coalescing to avoid undefined error
+    $password = $_POST['js_password'] ?? '';
+    $name = $_POST['js_name'] ?? '';
+    
     if (empty($email)) {
         echo "<span style='color:red;'>Please enter your email.</span>";
         exit;
@@ -32,17 +34,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $mail->setFrom('ayushkpatel1801@gmail.com', 'Aayush');
             $mail->addAddress($email);
-            
+
             $mail->isHTML(true);
             $mail->Subject = "Your OTP Verification Code";
             $mail->Body = "<p>Your OTP is: <strong>$otp</strong></p>";
 
             $mail->send();
-            if ($action == "resend") {
-                echo "OTP Resent";
-            } else {
-                echo "OTP Sent";
-            }
+            echo ($action == "resend") ? "OTP Resent" : "OTP Sent";
         } catch (Exception $e) {
             echo "<span style='color:red;'>Error sending email: {$mail->ErrorInfo}</span>";
         }
@@ -62,6 +60,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 }
+
+// Set session variables after form submission
+$_SESSION['js_name'] = $_POST['js_name'];
+$_SESSION['js_email'] = $_POST['js_email'];
+$_SESSION['js_password'] = $_POST['js_password'];
+$_SESSION['js_preference'] = $_POST['js_preference'];
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -111,51 +118,51 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         button:hover { background: #004A52; }
         .otp-input, #resend-otp { display: none; }
-        .message {
-            font-weight: bold;
-            margin-top: 10px;
-            color: red;
-        }
+        .message { font-weight: bold; margin-top: 10px; color: red; }
         #resend-otp {
             color: #007BFF;
             cursor: pointer;
             margin-top: 10px;
-            display: none;
         }
         #resend-otp:hover { text-decoration: underline; }
     </style>
     <script>
         function sendOTP(action = "generate") {
             let email = document.getElementById("email").value;
+            let generateButton = document.getElementById("generate-otp");
+
             if (!email) {
                 document.getElementById("message").innerText = "Please enter your email.";
                 return;
             }
+            generateButton.disabled = true;
+            generateButton.innerText = "Please wait...";
 
             let formData = new FormData();
             formData.append("action", action);
-            formData.append("email", email);
+            formData.append("js_email", email);
 
-            fetch("", { 
-                method: "POST",
-                body: formData
-            })
-            .then(response => response.text())
-            .then(data => {
-                if (data.trim() === "OTP Sent") {
-                    document.getElementById("generate-otp").style.display = "none";
-                    document.getElementById("otp").style.display = "block";
-                    document.getElementById("verify-btn").style.display = "block";
-                    document.getElementById("resend-otp").style.display = "block";
-                    document.getElementById("message").innerText = "OTP has been sent to your email.";
-                    document.getElementById("message").style.color = "green";
-                } else if (data.trim() === "OTP Resent") {
-                    document.getElementById("message").innerText = "OTP has been resent successfully!";
-                    document.getElementById("message").style.color = "blue";
-                }
-            });
+            fetch("", { method: "POST", body: formData })
+                .then(response => response.text())
+                .then(data => {
+                    if (data.trim() === "OTP Sent") {
+                        document.getElementById("generate-otp").style.display = "none";
+                        document.getElementById("otp").style.display = "block";
+                        document.getElementById("verify-btn").style.display = "block";
+                        document.getElementById("resend-otp").style.display = "block";
+                        document.getElementById("message").innerText = "OTP has been sent to your email.";
+                        document.getElementById("message").style.color = "green";
+                    } else {
+                        document.getElementById("message").innerHTML = data;
+                    }
+                })
+                .finally(() => {
+                    setTimeout(() => {
+                        generateButton.disabled = false;
+                        generateButton.innerText = "Generate OTP";
+                    }, 5000);
+                });
         }
-
         function verifyOTP() {
             let email = document.getElementById("email").value;
             let otp = document.getElementById("otp").value;
@@ -167,38 +174,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             let formData = new FormData();
             formData.append("action", "verify");
-            formData.append("email", email);
+            formData.append("js_email", email);
             formData.append("otp", otp);
 
-            fetch("", { 
-                method: "POST",
-                body: formData
-            })
-            .then(response => response.text())
-            .then(data => {
-                if (data.trim() === "success") {
-                    alert("Verification Completed!");
-                    window.location.href = "../LOGIN-SIGNUP/index.html"; 
-                } else {
-                    document.getElementById("message").innerHTML = data;
-                }
-            });
+            fetch("", { method: "POST", body: formData })
+                .then(response => response.text())
+                .then(data => {
+                    if (data.trim() === "success") {
+                        alert("Verification Completed!");
+                        window.location.href = "../LOGIN-SIGNUP/jobseeker_registration.php";
+                    } else {
+                        document.getElementById("message").innerHTML = data;
+                    }
+                });
         }
     </script>
 </head>
 <body>
-
-<div class="container">
-    <h2>OTP Verification</h2>
-    <input type="email" id="email" placeholder="Enter your email" required>
-    <button id="generate-otp" type="button" onclick="sendOTP()">Generate OTP</button>
-
-    <input type="text" id="otp" class="otp-input" placeholder="Enter OTP">
-    <button type="button" id="verify-btn" class="otp-input" onclick="verifyOTP()">Verify OTP</button>
-
-    <p id="resend-otp" onclick="sendOTP('resend')">Didn't receive OTP? Send again</p>
-    <p id="message" class="message"></p>
-</div>
-
+    <div class="container">
+        <h2>OTP Verification</h2>
+        <input type="email" id="email"
+            value="<?php echo isset($_POST['js_email']) ? $_POST['js_email'] : ''; ?>" readonly>
+        <button id="generate-otp" type="button" onclick="sendOTP()">Generate OTP</button>
+        <input type="text" id="otp" class="otp-input" placeholder="Enter OTP">
+        <button type="button" id="verify-btn" class="otp-input" onclick="verifyOTP()">Verify OTP</button>
+        <p id="resend-otp" onclick="sendOTP('resend')">Didn't receive OTP? Send again</p>
+        <p id="message" class="message"></p>
+    </div>
 </body>
 </html>
