@@ -91,10 +91,12 @@
         align-items: left;
     }
 
+
     .nav-links {
         display: flex;
         justify-content: space-around;
-        align-items: center;
+        align-items: right;
+        margin-right: -200px; 
     }
 
     .nav-links li {
@@ -751,3 +753,17 @@
 }
 
 */
+
+
+
+
+
+
+
+
+
+
+
+.company-feedback-title {
+    color: #004D40 ;
+}
